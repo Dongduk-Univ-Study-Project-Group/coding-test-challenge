@@ -1,0 +1,41 @@
+class Solution {
+    public int solution(String s) {
+        int answer = 0;
+        
+        // 문자열이 NULL일 경우
+        if(sList.length == 0) {
+        	return answer;
+        }
+        
+        // 문자열을 배열에 저장
+        String[] sList = s.split("");
+        
+        // 첫글자 x 저장
+        String tmp = sList[0];
+        
+        int xCount = 1;
+        int count = 0;
+            
+        for(int i = 1; i < sList.length; i++) {
+            if(xCount == count) {
+            	
+            	answer++;
+            	
+            	// 문자열 분리 및 카운트 변수 초기화
+                tmp = sList[i];
+                
+            	xCount = 1;
+            	count = 0;
+              	
+            	continue;
+            }
+            // tmp가 x인지 체크
+            if(tmp.equals(sList[i])) {
+            	xCount++;
+            } else {
+            	count++;
+            }
+        }
+        return answer + 1;
+    }
+}
