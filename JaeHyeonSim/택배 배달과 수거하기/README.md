@@ -90,8 +90,8 @@
 
 <details><summary>처음 작성한 코드</summary>
 <p>
-    
-    ```java
+
+```java
     class Solution {
         public long solution(int cap, int n, int[] deliveries, int[] pickups) {
             long answer = 0;
@@ -138,16 +138,16 @@
             return answer;
         }
     }
-    ```
-    
+```
+
 </details>
 
 <details><summary>시간초과 1- 배달이 끝난 집</summary>
 <p>
-    
-    배달이 끝난 집은 루프하지 않도록 해야 할 듯하다.
-    
-    ```java
+
+배달이 끝난 집은 루프하지 않도록 해야 할 듯하다.
+
+```java
     int done = n;   // 배달을 끝낸 집
     while (done > 0) {
     		...
@@ -161,18 +161,18 @@
     				...
     		}
     }
-    ```
-    
-    이렇게 했더니 test 18과 20을 통과했다.
+```
+
+이렇게 했더니 test 18과 20을 통과했다.
     
 </details>
 
 <details><summary>시간초과 2 - 다시 물류창고로</summary>
 <p>
 
-    상자가 가득 차면 for문을 넘어가도록 수정했다.
+상자가 가득 차면 for문을 넘어가도록 수정했다.
     
-    ```java
+```java
     for (visit = n - 1; visit >= 0; visit--) {
     	...
     	if (deliBox == 0 && pickBox == cap) {
@@ -181,28 +181,27 @@
       }
       answer += Math.abs(visit - now);
     }
-    ```
-    
-    test 17만 시간초과로 실패한다.
-    
-    질문 목록을 보니 delivery 박스 대비 pickup 박스가 너무 많거나 그 반대의 상황일 수 있다고 한다. 예를 들어
+```
+
+test 17만 시간초과로 실패한다.
+
+질문 목록을 보니 delivery 박스 대비 pickup 박스가 너무 많거나 그 반대의 상황일 수 있다고 한다. 예를 들어
     
     deliveries[] = { 1 1 1 1 0 0 0 0 }
     
     pickups[] = { 0 0 0 0 1 1 1 1 }
     
-    이런 경우 1~n까지 모든 집을 한 번씩 확인해야 해서 비효율적이라는 듯
+이런 경우 1~n까지 모든 집을 한 번씩 확인해야 해서 비효율적이라는 듯
     
 </details>
 
 <details><summary>최종 해결</summary>
 <p>
 
-    배달을 완료하면 수거할 집으로 바로 이동하고,
+배달을 완료하면 수거할 집으로 바로 이동하고,
+수거를 완료하면 배달할 집으로 바로 이동한다. 
     
-    수거를 완료하면 배달할 집으로 바로 이동한다. 
-    
-    ```java
+```java
     int deliDone = n;   // 배달을 끝낸 집
     int pickDone = n;   // 수거를 끝낸 집
     ...
@@ -228,14 +227,14 @@
       }
     	...
     }
-    ```
+```
     
-    | 테스트 16 〉 | 통과 (58.02ms, 89.6MB) |
-    | --- | --- |
-    | 테스트 17 〉 | 통과 (37.57ms, 99MB) |
-    | 테스트 18 〉 | 통과 (23.27ms, 94.8MB) |
-    | 테스트 19 〉 | 통과 (18.54ms, 99.3MB) |
-    | 테스트 20 〉 | 통과 (27.73ms, 96.8MB) |
-    시간이 엄청나게 줄어든다.
+| 테스트 16 〉 | 통과 (58.02ms, 89.6MB) |
+| --- | --- |
+| 테스트 17 〉 | 통과 (37.57ms, 99MB) |
+| 테스트 18 〉 | 통과 (23.27ms, 94.8MB) |
+| 테스트 19 〉 | 통과 (18.54ms, 99.3MB) |
+| 테스트 20 〉 | 통과 (27.73ms, 96.8MB) |
+시간이 엄청나게 줄어든다.
 
 </details>
