@@ -119,3 +119,63 @@
 3. **오늘 날짜**를 기준으로 파기할 날짜를 구한다.
     1. 오늘 날짜보다 이전이면 파기하고, 아니면 냅둔다.
     2. 날짜를 모두 일수로 바꾼 후 비교하는 것이 좋다.
+    
+## 코드
+
+```java
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Arrays;
+import java.util.Calendar;
+
+class Solution {
+    public int[] solution(String today, String[] terms, String[] privacies) {
+        int[] deadline = new int[terms.length];
+        String[] types = new String[terms.length];
+        int[] tempAnswer = new int[privacies.length];
+        int tempAnswerIndex = 0;
+        
+        int todayYear = Integer.parseInt(today.substring(0, 4)) * 12 * 28;
+        int todayMonth = Integer.parseInt(today.substring(5, 7)) * 28;
+        int todayDay = Integer.parseInt(today.substring(8, 10));
+        int todaySum = todayYear + todayMonth + todayDay;
+        
+        for (int i = 0; i < terms.length; i++) {
+            String[] temps = terms[i].split(" ");
+            deadline[i] = Integer.parseInt(temps[1]) * 28;
+            types[i] = temps[0];
+        }
+        
+        for (int i = 0; i < privacies.length; i++) {
+            String[] temps = privacies[i].split(" ");
+            int year = Integer.parseInt(temps[0].substring(0, 4)) * 12 * 28;
+            int month = Integer.parseInt(temps[0].substring(5, 7)) * 28;
+            int day = Integer.parseInt(temps[0].substring(8, 10));
+            
+            // SimpleDateFormat format = new SimpleDateFormat("yyyy.mm.dd");
+            // Date date = format.parse(temps[0]);
+            // Calendar cal = Calendar.getInstance();
+            // cal.setTime(date);
+
+            // int index = Arrays.binarySearch(types, temps[1]);
+            int index = Arrays.asList(types).indexOf(temps[1]);
+            int dateSum = year + month + day + deadline[index];
+            
+            if (todaySum >= dateSum) {     // 이게 왜 오늘 날짜랑 같아야하지?
+                tempAnswer[tempAnswerIndex] = i + 1;
+                tempAnswerIndex++;
+            }
+
+            // cal.add(Calendar.DATE, deadline[index]);
+        }
+        
+        int[] answer = new int[tempAnswerIndex];
+        
+        for (int i = 0; i < tempAnswerIndex; i++) {
+            answer[i] = tempAnswer[i];
+        }
+        
+        return answer;
+    }
+}
+```
