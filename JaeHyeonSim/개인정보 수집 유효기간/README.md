@@ -101,3 +101,4 @@
 
 - Date 클래스를 사용했다가 에러가 나서 Calendar 클래스를 사용
 - month 처리를 제대로 안 해줘서 실패 뜸
+- python은 date를 구해서 하면 대부분 런타임 에러 (solution_runtime.py)

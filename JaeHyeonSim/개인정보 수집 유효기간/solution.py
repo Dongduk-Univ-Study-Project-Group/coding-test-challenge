@@ -1,11 +1,10 @@
-import datetime as dt
 import re
 
 def solution(today, terms, privacies):
     answer = []
     
-    t = today.split(".")    # 오늘 날짜 str to date
-    tDate = dt.datetime(int(t[0]), int(t[1]), int(t[2]))
+    t = today.split(".")    # 오늘 날짜
+    tDay = int(t[0]) * 12 * 28 + int(t[1]) * 28 + int(t[2])
     
     termDict = {}           # 약관 종류별 유효기간
     for term in terms:
@@ -13,19 +12,12 @@ def solution(today, terms, privacies):
     
     index = 1
     for privacie in privacies:
-        p = re.split("[. ]", privacie)
+        p = re.split("[. ]", privacie)  # '.'과 ' '로 구분
         
-        year = int(p[0])
-        month = int(p[1])
-        day = int(p[2])
+        pDay = int(p[0]) * 12 * 28 + int(p[1]) * 28 + int(p[2])
+        pDay += termDict.get(p[3]) * 28
         
-        month += termDict.get(p[3])     # 약관에 맞는 기간을 더한다
-        if month > 12:                  # 12월을 넘어갔을 때 year, month 처리
-            year += month // 12
-            month = (month - 12) % 12
-        
-        pDate = dt.datetime(year, month, day)   # 만료일과 날짜 비교
-        if tDate >= pDate:
+        if tDay >= pDay:    # 만료일과 날짜 비교
             answer.append(index)
         index += 1
     
