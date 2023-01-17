@@ -22,3 +22,27 @@ arr	answer
 ### 입출력 예 설명
 입출력 예 #1,2  
 + 문제의 예시와 같습니다.
+
+### 풀이 방법
+```agsl
+    // 방법 1
+    int[] arr1 = new int[list.size()]
+    for (int i = 0 ; i < list.size() ; i++) {
+        arr1[i] = list.get(i).intValue();
+    
+    // 방법 2
+    int[] arr2 = list.stream()
+                .mapToInt(i -> i)
+                .toArray();
+    
+    // 방법 3
+    int[] arr3 = list.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
+
+    // 방법 4
+    int[] arr4 = list.stream()
+                .filter(i -> i != null)
+                .mapToInt(i -> i)
+                .toArray();
+```
