@@ -14,7 +14,7 @@
 
 또, 가장 마지막 레벨을 제외한 모든 집은 왼쪽 자식과 오른쪽 자식을 갖는다.
 
-<img src="https://user-images.githubusercontent.com/97737822/215090442-7875f22d-2d6c-4b2a-83c9-c5d42ae54f81.png" width="1000" height="500" />
+<img src="https://user-images.githubusercontent.com/97737822/215090442-7875f22d-2d6c-4b2a-83c9-c5d42ae54f81.png" width="500" height="200" />
 
 상근이는 도시에 있는 모든 빌딩에 들어갔고, 들어간 순서대로 번호를 종이에 적어 놓았다. 
 
