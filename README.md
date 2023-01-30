@@ -3,7 +3,7 @@
 | Github ID | 안 푼 날짜 |
 | --- | --- |
 | JaeHyeonSim | 1/25 - 1/30 |
-| aeeazip | 1/28 - 1/29 |
+| aeeazip | 1/28, 1/29 |
 | isprogrammingfun | 1/10, 1/17 |
 | kittybelle | 1/14, 1/20, 1/25 - 1/30 |
 | yu-heejin | 1/12, 1/17, 1/27 |
