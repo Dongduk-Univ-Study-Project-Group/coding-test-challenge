@@ -2,11 +2,11 @@ class Solution {
     private final int BASE_NUMBER = 3;
     
     public int solution(int n) {
-        String reverseNumber = getResultNumber(n, "");
+        String reverseNumber = getReverseNumber(n, "");
         return getAnswer(n, reverseNumber);
     }
     
-    private String getResultNumber(int n, String reverseNumber) {
+    private String getReverseNumber(int n, String reverseNumber) {
         while (n > 0) {
             reverseNumber += n % BASE_NUMBER;
             n /= BASE_NUMBER;
