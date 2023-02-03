@@ -1,3 +1,5 @@
+## Commit message format
+- 커밋 메세지는 [이름] n일차: 문제 이름
 ## 문제 풀이 누락 현황 ❌
 
 | Github ID | 안 푼 날짜 |
