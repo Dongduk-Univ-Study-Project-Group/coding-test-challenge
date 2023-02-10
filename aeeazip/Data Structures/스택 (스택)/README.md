@@ -118,3 +118,9 @@ pop
 2. 가장 먼저 들어온 데이터는 stackArray[0]이며, 가장 최근에 들어온 데이터는 stackArray[++top]에 저장 
 3. 스택이 공백 상태 (isEmpty == true)이면 top = -1
 ```
+
+<hr/>
+
+스택 클래스를 사용해서 구현도 해봤다. 
+
+클래스에 push, pop, peek, isFull, isEmpty, size 등등 함수가 내장되어 있어서 배열로 구현한 스택에 비해 코드를 훨씬 단축할 수 있었다.
